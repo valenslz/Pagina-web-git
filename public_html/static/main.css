@@ -1,0 +1,74 @@
+.panel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 250px);
+    gap: 16px 30px; /* Simplifica el uso de row-gap y column-gap */
+    padding: 10px; /* Asegura espaciado interno */
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 40px;
+    font-size: 35px;
+}
+
+.temp, .orp, .conductividad, .agitacion, .sanitizacion {
+    border: solid;
+    border-color: rgba(0, 0, 0, 0.09);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    color: white;
+    font-size: 2.5rem; /* Usa unidades relativas para mejorar la responsividad */
+    border-radius: 30px;
+}
+.Temperatura, .Conductividad, .Orp, .Agitacion, .Sanitizacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+}
+/* Colores específicos */
+.temp { background-color: #014234; }
+.orp { background-color: #85abab; }
+.conductividad { background-color: #ccd5ae; }
+.agitacion { background-color: #a5cbb9; }
+.sanitizacion { 
+    grid-row: span 2;
+    background-color: #0a6f6f; 
+}
+
+/* Adaptaciones para pantallas medianas */
+@media (max-width: 1110px) {
+    .panel {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 200px);
+    }
+}
+
+/* Adaptaciones para pantallas pequeñas */
+@media (max-width: 850px) {
+    .panel {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(6, 180px);
+    }
+    .sanitizacion {
+        grid-row: auto;
+    }
+    .temp, .orp, .conductividad, .agitacion, .sanitizacion {
+        font-size: 1.2rem; /* Ajusta tamaño de texto para pantallas pequeñas */
+    }
+}
+
+/* Adaptaciones para pantallas muy pequeñas */
+@media (max-width: 550px) {
+    .panel {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 180px);
+    }
+    .sanitizacion {
+        grid-row: auto;
+    }
+}
